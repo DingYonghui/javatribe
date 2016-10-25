@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javatribe.dao.AboutManagerCustomMapper" >
+  <resultMap id="BaseResultMap1" type="com.javatribe.pojo.AboutManager" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="about_manage_id" property="aboutManageId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="short_phone" property="shortPhone" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List1" >
+    ID, about_manage_id, name, phone, short_phone, qq
+  </sql>
+  
+  <select id="selectAll" resultMap="BaseResultMap1">
+    select 
+    <include refid="Base_Column_List1" />
+    from about_manager
+  </select>
+  
+</mapper>

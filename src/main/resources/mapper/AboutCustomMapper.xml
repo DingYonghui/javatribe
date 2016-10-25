@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javatribe.dao.AboutCustomMapper" >
+
+ <resultMap id="BaseResultMapAll2" type="com.javatribe.pojo.About" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="about_id" property="aboutId" jdbcType="INTEGER" />
+    <result column="viedo" property="viedo" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="title_content" property="titleContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List2" >
+    ID, about_id, viedo, title
+  </sql>
+  <sql id="Blob_Column_List2" >
+    title_content
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMapAll2" >
+    select
+    <include refid="Base_Column_List2" />
+    ,
+    <include refid="Blob_Column_List2" />
+    from about
+  </select>
+  
+</mapper>

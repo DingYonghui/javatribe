@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javatribe.dao.HomeClickMapper" >
+  <resultMap id="BaseResultMap" type="com.javatribe.pojo.HomeClick" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="home_click_id" property="homeClickId" jdbcType="INTEGER" />
+    <result column="group_img_click" property="groupImgClick" jdbcType="VARCHAR" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.javatribe.pojo.HomeClick" extends="BaseResultMap" >
+    <result column="group_intro" property="groupIntro" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, home_click_id, group_img_click, group_name
+  </sql>
+  <sql id="Blob_Column_List" >
+    group_intro
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from home_click
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from home_click
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.javatribe.pojo.HomeClick" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into home_click (home_click_id, group_img_click, group_name, 
+      group_intro)
+    values (#{homeClickId,jdbcType=INTEGER}, #{groupImgClick,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR}, 
+      #{groupIntro,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.javatribe.pojo.HomeClick" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into home_click
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="homeClickId != null" >
+        home_click_id,
+      </if>
+      <if test="groupImgClick != null" >
+        group_img_click,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="groupIntro != null" >
+        group_intro,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="homeClickId != null" >
+        #{homeClickId,jdbcType=INTEGER},
+      </if>
+      <if test="groupImgClick != null" >
+        #{groupImgClick,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupIntro != null" >
+        #{groupIntro,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.javatribe.pojo.HomeClick" >
+    update home_click
+    <set >
+      <if test="homeClickId != null" >
+        home_click_id = #{homeClickId,jdbcType=INTEGER},
+      </if>
+      <if test="groupImgClick != null" >
+        group_img_click = #{groupImgClick,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupIntro != null" >
+        group_intro = #{groupIntro,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.javatribe.pojo.HomeClick" >
+    update home_click
+    set home_click_id = #{homeClickId,jdbcType=INTEGER},
+      group_img_click = #{groupImgClick,jdbcType=VARCHAR},
+      group_name = #{groupName,jdbcType=VARCHAR},
+      group_intro = #{groupIntro,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.javatribe.pojo.HomeClick" >
+    update home_click
+    set home_click_id = #{homeClickId,jdbcType=INTEGER},
+      group_img_click = #{groupImgClick,jdbcType=VARCHAR},
+      group_name = #{groupName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

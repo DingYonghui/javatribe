@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javatribe.dao.ActivityCustomMapper" >
+
+ <resultMap id="BaseResultMapAll1" type="com.javatribe.pojo.Activity" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="activity_id" property="activityId" jdbcType="INTEGER" />
+    <result column="theme" property="theme" jdbcType="VARCHAR" />
+    <result column="activity_img" property="activityImg" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+     <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+  </resultMap>
+  
+  
+ 
+  <sql id="Base_Column_List1" >
+    ID, activity_id, theme, activity_img,time, place
+  </sql>
+  <sql id="Blob_Column_List1" >
+    content
+  </sql>
+  
+  <select id="selectAll" resultMap="BaseResultMapAll1">
+    select 
+    <include refid="Base_Column_List1" />
+    ,
+    <include refid="Blob_Column_List1" />
+    from activity
+  </select>
+  
+  
+</mapper>

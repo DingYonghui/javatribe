@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javatribe.dao.AboutTeamCustomMapper" >
+
+  <resultMap id="BaseResultMapAll1" type="com.javatribe.pojo.AboutTeam" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="about_team_id" property="aboutTeamId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="intro" property="intro" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+ 
+  <sql id="Base_Column_List1" >
+    ID, about_team_id, name
+  </sql>
+  <sql id="Blob_Column_List1" >
+    intro
+  </sql>
+  
+  <select id="selectAll" resultMap="BaseResultMapAll1">
+    select 
+    <include refid="Base_Column_List1" />
+    ,
+    <include refid="Blob_Column_List1" />
+    from about_team
+  </select>
+  
+  
+  
+</mapper>

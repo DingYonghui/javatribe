@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javatribe.dao.AboutCustomMapper" >
+  <resultMap id="BaseResultMap" type="com.javatribe.pojo.About" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="about_id" property="aboutId" jdbcType="INTEGER" />
+    <result column="viedo" property="viedo" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.javatribe.pojo.About" extends="BaseResultMap" >
+    <result column="title_content" property="titleContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, about_id, viedo, title
+  </sql>
+  <sql id="Blob_Column_List" >
+    title_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from about
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from about
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.javatribe.pojo.About" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into about (about_id, viedo, title, 
+      title_content)
+    values (#{aboutId,jdbcType=INTEGER}, #{viedo,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{titleContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.javatribe.pojo.About" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into about
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aboutId != null" >
+        about_id,
+      </if>
+      <if test="viedo != null" >
+        viedo,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="titleContent != null" >
+        title_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aboutId != null" >
+        #{aboutId,jdbcType=INTEGER},
+      </if>
+      <if test="viedo != null" >
+        #{viedo,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="titleContent != null" >
+        #{titleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.javatribe.pojo.About" >
+    update about
+    <set >
+      <if test="aboutId != null" >
+        about_id = #{aboutId,jdbcType=INTEGER},
+      </if>
+      <if test="viedo != null" >
+        viedo = #{viedo,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="titleContent != null" >
+        title_content = #{titleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.javatribe.pojo.About" >
+    update about
+    set about_id = #{aboutId,jdbcType=INTEGER},
+      viedo = #{viedo,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      title_content = #{titleContent,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.javatribe.pojo.About" >
+    update about
+    set about_id = #{aboutId,jdbcType=INTEGER},
+      viedo = #{viedo,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
