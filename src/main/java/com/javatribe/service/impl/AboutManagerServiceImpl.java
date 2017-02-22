@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.javatribe.dao.AboutImgMapper;
 import com.javatribe.dao.AboutManagerCustomMapper;
 import com.javatribe.dao.AboutManagerMapper;
 import com.javatribe.pojo.AboutManager;

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.javatribe.dao.AboutCustomMapper;
 import com.javatribe.dao.AboutMapper;
+import com.javatribe.dao.AboutMapper;
 import com.javatribe.pojo.About;
 import com.javatribe.service.AboutService;
 

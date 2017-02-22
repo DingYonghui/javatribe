@@ -19,4 +19,5 @@ public interface AboutMapper {
 
     int updateByPrimaryKey(About record);
     
+    
 }

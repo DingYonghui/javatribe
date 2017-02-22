@@ -5,36 +5,92 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/slider.css">
     <title>关于</title>
 </head>
 <body>
-<header class="container-fluid navbar-fixed-top ">
+<header class="container-fluid navbar-fixed-top blue-nav">
     <nav class="container col-md-6 col-md-offset-3">
         <div class="pull-left">
-            <a href="">
-                <div class="logo">LOGO</div>
+            <a href="../">
+                <div class="logo"></div>
             </a>
         </div>
         <div class="pull-right ">
             <ul class="clearfix">
-                <li><a href="">关于</a></li>
-                <li><a href="">活动</a></li>
-                <li><a href="">项目</a></li>
+                <li><a href="../about">关于</a></li>
+                <li><a href="../activity">活动</a></li>
+                <li><a href="../item">项目</a></li>
             </ul>
         </div>
     </nav>
 </header>
+<article class="container-fluid mt">
+    <section class="video container-fluid">
+        <video id="video" src="../video/javatribe.mp4" autoplay width="100%" height="480px" ></video>
+        <div class="video-poster container-fluid">
+            <h1 id="play"></h1>
+        </div>
 
-<article class="container-fluid">
-    <section class="video">
-        <video src="#" autoplay ></video>
+    </section>
+    <section class="s3 container">
+        <h3 class="s3-title">部落简介</h3>
+        <div class="col-md-8 col-md-offset-2">
+            <p>爪哇部落是一支由广东金融学院学子自发组织成立的兴趣型计算机技术学习交流团队。</p>
+            <p>2011年6月，爪哇部落由广东金融学院2009级计科系的几位充满热血的师兄师姐创立诞生，经过6年的发展，已成为一支极具计算机专业性
+                质的团队。爪哇部落立志于向广金学子提供一个计算机专业的学习交流平台，为学院不同专业，不同年级同学提供专业的学习和就业指导。团
+                队秉承着海纳百川的态度，积极热情的展开各种学习交流活动，结合广东金融学院金融的特色，在创新创业的狂潮中，不断进步。</p>
+            <p>团队宗旨：博采众长，共同进步</p></div>
+
+    </section>
+    <section class="s3 container">
+        <h3 class="s3-title">团队架构</h3>
+        <div class="col-md-6 col-md-offset-3">
+            <img id="jiagou" src="../img/jiagou.png" width="100%" height="auto" alt="部落架构">
+        </div>
+
+    </section>
+    <section class="container-fluid">
+        <div class="slider">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider">
+                    <img src="../picture/1.jpg" alt="" />
+                    <img src="../picture/2.JPG" alt="" />
+                    <img src="../picture/3.jpg" alt="" />
+                    <img src="../picture/4.jpg" alt="" />
+                    <img src="../picture/5.jpg"  alt="" />
+                </div>
+            </div>
+            <div class="nivo-directionNav">
+                <a class="nivo-prevNav"></a>
+                <a class="nivo-nextNav"></a>
+            </div>
+            <div class="col-md-2 col-md-offset-5 nivo-controlNav">
+                <a class="nivo-control" rel="0"></a>
+                <a class="nivo-control" rel="1"></a>
+                <a class="nivo-control active" rel="2"></a>
+                <a class="nivo-control" rel="3"></a>
+                <a class="nivo-control" rel="4"></a>
+            </div>
+        </div>
     </section>
 </article>
-
-<script src="/js/jquery.js"></script>
-<script src="/js/main.js"></script>
+<footer class="container-fluid">
+    <div class="col-md-2 col-md-offset-5">
+        <img src="../img/footer.png" class="img-responsive"/>
+        <p>Copyright@All rights reserved.</p>
+    </div>
+</footer>
+<script src="../js/jquery.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/jquery.nivo.slider.js"></script>
+<script>
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+</script>
 </body>
 </html>

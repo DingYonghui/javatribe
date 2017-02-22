@@ -1,20 +1,20 @@
 (function (window) {
     var $header = $('header');
-    var url=location.pathname.toLocaleLowerCase();
-    console.log(url)
-    if(url=='/javatribe/activity/')
-        blueNav();
-    else if(url=='/javatribe/project')
+    var url = location.pathname.toLocaleLowerCase();
+//    if (url == '/javatribe/activity/')
+//        blueNav();
+    if (url == '/javatribe/')
         indexNav();
-    else if(url=='/javatribe/project/project')
-        orangeNav();
-
-    function orangeNav() {
-        $header.addClass('orange-nav')
-    }
-    function blueNav() {
-        $header.addClass('blue-nav');
-    }
+//    else if (url == '/javatribe/item/')
+//        orangeNav();
+//
+//    function orangeNav() {
+//        $header.addClass('orange-nav')
+//    }
+//
+//    function blueNav() {
+//        $header.addClass('blue-nav');
+//    }
     function indexNav() {
         window.onscroll = function () {
             var h = document.documentElement.scrollTop || document.body.scrollTop;
@@ -26,7 +26,6 @@
             }
         }
     }
-
 }(window));
 
 ;(function () {
@@ -46,28 +45,23 @@
         group = '#group' + index;
         groupLi.removeClass('active')
         groupIntroLi.removeClass()
-        setTimeout(function () {
-            groupIntroLi.hide();
-            $(group).show();
-            $(group).addClass('animate');
-        }, 300);
+        groupIntroLi.hide();
+        $(group).show();
+        $(group).addClass('animate');
     }
 
     function removeGroupIntro() {
         var index = $(this).index() + 1;
         group = '#group' + index;
         groupIntroLi.removeClass('animate');
-
-        setTimeout(function () {
-            groupIntroLi.hide()
-            if ($(group).hasClass('active')) {
-                $(group).show()
-            }
-            else {
-                defaultIntro.show();
-                defaultIntro.addClass('animate');
-            }
-        }, 300)
+        groupIntroLi.hide()
+        if ($(group).hasClass('active')) {
+            $(group).show()
+        }
+        else {
+            defaultIntro.show();
+            defaultIntro.addClass('animate');
+        }
     }
 
     function GroupIntroClick() {
@@ -79,3 +73,23 @@
     }
 }());
 
+;(function () {
+    var play = $('#play'),
+        video = $('#video').get(0),
+        videoPoster=$('.video-poster');
+    if(video)
+    	video.addEventListener('ended', showPlayBtn);
+    function showPlayBtn() {
+        console.log(111);
+        videoPoster.css('visibility','visible');
+    }
+
+    play.click(function () {
+        if (video.paused) {
+            videoPoster.css('visibility','hidden')
+            video.play();
+        }
+        else
+            video.pause();
+    })
+}());

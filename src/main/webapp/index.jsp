@@ -1,47 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() 
++ ":" + request.getServerPort() + path + "/"; %>
 
-<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkti">
-    <link rel="stylesheet" href="/javatribe/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/javatribe/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/javatribe/css/main.css">
-  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>首页</title>
- <% 
-String path=request.getContextPath();
-String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-   
 </head>
 <body>
 <header class="container-fluid navbar-fixed-top">
     <nav class="container col-md-6 col-md-offset-3">
         <div class="pull-left">
-            <a href="http://localhost:8080/javatribe/index.jsp"><div class="logo">LOGO</div></a>
+            <a href="../"><div class="logo"></div></a>
         </div>
         <div class="pull-right ">
             <ul class="clearfix">
-                <li><a href="">关于</a></li>
-                <li><a href="http://localhost:8080/javatribe/Activity/activity">活动</a></li>
-                 <li><a href="http://localhost:8080/javatribe/Project/project">项目</a></li>
+                <li><a href="<%=basePath %>About/about">关于</a></li>
+                <li><a href="<%=basePath %>Activity/activity">活动</a></li>
+                <li><a href="<%=basePath %>Item/item">项目</a></li>
             </ul>
         </div>
     </nav>
 </header>
-
 <article class="container-fluid">
     <section class="s1">
         <div class="container">
             <div class="col-md-10 col-md-offset-1">
                 <h1>你的指尖，有改变世界的力量</h1>
                 <h3>爪哇部落——程序员的梦工厂</h3>
-                <h4><a id="more" href="#">了解我们</a></h4>
+                <h4><a id="more" href="<%=basePath %>About/about">了解我们</a></h4>
                 <div class="col-md-8 col-md-offset-2 group-intro">
                     <ul class="col-md-6 col-md-offset-3 group-intro-nav">
                         <li class="col-md-4"></li>
@@ -72,19 +67,19 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
     </section>
     <section class="s2 container">
         <div class="col-md-4 col-md-offset-4">
-            <h1><img src="<%=basePath%>img/2.png" alt=""></h1>
+            <h1><img src="img/2.png" alt=""></h1>
             <h1>重要项目成果</h1>
-            <h4><a href="http://localhost:8080/javatribe/Project/project" class="getMore">查看所有</a></h4>
+            <h4><a href="<%=basePath %>Item/item" class="getMore">查看所有</a></h4>
         </div>
     </section>
 </article>
 <footer class="container-fluid">
     <div class="col-md-2 col-md-offset-5">
-        <img src="<%=basePath%>/img/footer.png" class="img-responsive"/>
+        <img src="img/footer.png" class="img-responsive"/>
         <p>Copyright@All rights reserved.</p>
     </div>
 </footer>
-<script src="/javatribe/js/jquery.js"></script>
-<script src="/javatribe/js/main.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
