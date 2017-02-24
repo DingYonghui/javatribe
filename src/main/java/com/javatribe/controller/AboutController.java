@@ -31,7 +31,6 @@ public class AboutController {
 	@Resource
 	AboutTeamService aboutTeamService;
 	
-	
 	@RequestMapping("/about")
 	public String aboutAll(Model model){
 		//获取关于列表
@@ -46,8 +45,6 @@ public class AboutController {
 		model.addAttribute("aboutTribe", aboutTribe);
 		model.addAttribute("aboutTeam", aboutTeam);
 		
-//		model.addAttribute("aboutManagerList", aboutManagerList);
-//		model.addAttribute("aboutTeamList", aboutTeamList);
 		//返回aboutAll页面
 		return "About/about";
 	}
