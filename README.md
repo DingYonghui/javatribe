@@ -1,18 +1,18 @@
 # javatribe
 ## 简介
-- 爪哇部落社团网站的版本1.0.0。
+- 爪哇部落社团网站的版本1.0.0。大三上学期时组织几个同学开发的网站。
 ## 技术选型
-1. 后端<br/>  
+1. 后端<br/>
 - 核心框架：Spring Framework 4.2.5.RELEASE
 - 视图框架：Spring MVC 4.2.5.RELEASE
 - 持久层框架：MyBatis 3.2.8
 - 数据库连接池：commons-dbcp 1.2.2
 - 日志管理：SLF4J 1.7.7、Log4j 1.2.17
 - 工具类：Apache Commons、fastjson 1.1.41、jackson 2.6.0、junit 4.11
-2、前端<br/>  
+2. 前端<br/>
 - JS框架：jQuery
 - CSS框架：Bootstrap
-4、平台<br/>  
+3. 平台<br/>
 - 服务器中间件：Servlet、JSP、beetl模板引擎,支持应用服务器中间件Tomcat
 - 数据库支持：MySql
 - 开发环境：Java、Eclipse、Maven、Git
